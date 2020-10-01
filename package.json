@@ -1,0 +1,25 @@
+{
+    "name": "test-datasets",
+    "version": "1.0.0",
+    "description": "A collection of dataset JSON objects that can be used to different projects",
+    "main": "index.js",
+    "dependencies": {
+        "lorem-ipsum": "^2.0.3",
+        "randexp": "^0.5.3"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sarathm09/test-datasets.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sarathm09/test-datasets/issues"
+    },
+    "homepage": "https://github.com/sarathm09/test-datasets#readme"
+}
