@@ -599,9 +599,17 @@ const getRandomNames = (n = 1) =>
         .fill('')
         .map(() => names[Math.floor(Math.random() * NUMBER_OF_NAMES)])
 
-const getRandomDockerName = () => `${adjectives[Math.floor(Math.random() * NUMBER_OF_ADJECTIVES)]} ${names[Math.floor(Math.random() * NUMBER_OF_NAMES)]}`
+const getRandomDockerName = () => {
+    let adjective = adjectives[Math.floor(Math.random() * NUMBER_OF_ADJECTIVES)]
+    let name = names[Math.floor(Math.random() * NUMBER_OF_NAMES)]
 
-const getRandomDockerNames = (n = 1) => Array(n).map(() => `${adjectives[Math.floor(Math.random() * NUMBER_OF_ADJECTIVES)]} ${names[Math.floor(Math.random() * NUMBER_OF_NAMES)]}`)
+    adjective = adjective.charAt(0).toUpperCase() + adjective.slice(1)
+    name = name.charAt(0).toUpperCase() + name.slice(1)
+
+    return `${adjective} ${name}`
+}
+
+const getRandomDockerNames = (n = 1) => Array(n).map(() => getRandomDockerName())
 
 export { getRandomDockerName, getRandomDockerNames, getRandomName, getRandomNames }
 export default { getRandomDockerName, getRandomDockerNames, getRandomName, getRandomNames }
