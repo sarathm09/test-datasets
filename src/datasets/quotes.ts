@@ -4013,18 +4013,23 @@ const quotes = [
 
 const NUMBER_OF_QUOTES = quotes.length
 
-const getRandomQuote = () => {
+const getRandomQuoteWithAuthor = () => {
     let { content, author } = quotes[Math.floor(Math.random() * NUMBER_OF_QUOTES)]
     return { content, author }
 }
 
+const getRandomQuotesWithAuthor = (n = 1) =>
+    Array(n)
+        .fill('')
+        .map(() => getRandomQuoteWithAuthor())
+
+const getRandomQuote = () => quotes[Math.floor(Math.random() * NUMBER_OF_QUOTES)].content
+
 const getRandomQuotes = (n = 1) =>
     Array(n)
         .fill('')
-        .map(() => {
-            let { content, author } = quotes[Math.floor(Math.random() * NUMBER_OF_QUOTES)]
-            return { content, author }
-        })
+        .map(() => getRandomQuote())
+        
 
-export { getRandomQuote, getRandomQuotes }
-export default { getRandomQuote, getRandomQuotes }
+export { getRandomQuote, getRandomQuotes, getRandomQuoteWithAuthor, getRandomQuotesWithAuthor }
+export default { getRandomQuote, getRandomQuotes, getRandomQuoteWithAuthor, getRandomQuotesWithAuthor }

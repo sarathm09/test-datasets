@@ -1,6 +1,6 @@
 {
     "name": "test-datasets",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A collection of dataset JSON objects that can be used to different projects",
     "homepage": "https://github.com/sarathm09/test-datasets#readme",
     "main": "./lib/index.js",

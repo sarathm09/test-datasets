@@ -161,4 +161,5 @@ const getRandomSpells = (n = 1) =>
         .fill('')
         .map(() => spells[Math.floor(Math.random() * NUMBER_OF_SPELLS)])
 
+export { getRandomSpell, getRandomSpells }
 export default { getRandomSpell, getRandomSpells }
