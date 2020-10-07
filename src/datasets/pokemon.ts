@@ -1,28 +1,37 @@
 // Data from: https://www.kaggle.com/rounakbanik/pokemon
-import { pokemon } from './pokemonData';
+import { pokemon } from './data/pokemon'
 
-const NUMBER_OF_POKEMON = pokemon.length;
+const NUMBER_OF_POKEMON = pokemon.length
 
-const getRandomPokemon = () =>
-  pokemon[Math.floor(Math.random() * NUMBER_OF_POKEMON)];
+const getAllPokemon = (id?: number, generations: number[] = [1, 2, 3, 4, 5, 6, 7]) => {
+    if (!!id) return pokemon[id]
+    let filteredPokemon = pokemon.filter(p => generations.includes(p.generation))
+    return filteredPokemon
+}
+
+const getRandomPokemon = (id?: number, generations: number[] = [1, 2, 3, 4, 5, 6, 7]) => {
+    if (!!id) return pokemon[id]
+    let filteredPokemon = pokemon.filter(p => generations.includes(p.generation))
+    return filteredPokemon[Math.floor(Math.random() * filteredPokemon.length)]
+}
 
 const getRandomPokemons = (n = 1) =>
-  Array(n)
-    .fill('')
-    .map(() => pokemon[Math.floor(Math.random() * NUMBER_OF_POKEMON)]);
+    Array(n)
+        .fill('')
+        .map(() => pokemon[Math.floor(Math.random() * NUMBER_OF_POKEMON)])
 
-const getRandomName = () =>
-  pokemon[Math.floor(Math.random() * NUMBER_OF_POKEMON)].name;
+const getRandomName = (id?: number, generations: number[] = [1, 2, 3, 4, 5, 6, 7]) => getRandomPokemon(id, generations).name
 
 const getRandomNames = (n = 1) =>
-  Array(n)
-    .fill('')
-    .map(() => pokemon[Math.floor(Math.random() * NUMBER_OF_POKEMON)].name);
+    Array(n)
+        .fill('')
+        .map(() => pokemon[Math.floor(Math.random() * NUMBER_OF_POKEMON)].name)
 
-export { getRandomName, getRandomNames, getRandomPokemon, getRandomPokemons };
+export { getRandomName, getRandomNames, getRandomPokemon, getRandomPokemons }
 export default {
-  getRandomName,
-  getRandomNames,
-  getRandomPokemon,
-  getRandomPokemons,
-};
+    getAllPokemon,
+    getRandomName,
+    getRandomNames,
+    getRandomPokemon,
+    getRandomPokemons
+}
